@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: desbloqueado
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
+      propertyPath: nombreEscena
+      value: Nivel_2
+      objectReference: {fileID: 0}
     - target: {fileID: 8283338438265527479, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: m_text
       value: 2
@@ -475,6 +479,10 @@ PrefabInstance:
       propertyPath: desbloqueado
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
+      propertyPath: nombreEscena
+      value: Nivel_6
+      objectReference: {fileID: 0}
     - target: {fileID: 8283338438265527479, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: m_text
       value: 6
@@ -698,6 +706,10 @@ PrefabInstance:
     - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: desbloqueado
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
+      propertyPath: nombreEscena
+      value: Nivel_3
       objectReference: {fileID: 0}
     - target: {fileID: 8283338438265527479, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: m_text
@@ -1195,6 +1207,10 @@ PrefabInstance:
     - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: desbloqueado
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
+      propertyPath: nombreEscena
+      value: Nivel_5
       objectReference: {fileID: 0}
     - target: {fileID: 8283338438265527479, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: m_text
@@ -2638,6 +2654,10 @@ PrefabInstance:
     - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: desbloqueado
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
+      propertyPath: nombreEscena
+      value: Nivel_4
       objectReference: {fileID: 0}
     - target: {fileID: 8283338438265527479, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: m_text
@@ -4328,6 +4348,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
       propertyPath: desbloqueado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068022466441933649, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}
+      propertyPath: desbloqueadoPorDefecto
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9197932231446964612, guid: 3a1fcd9901dc6b145b1d539f26857292, type: 3}

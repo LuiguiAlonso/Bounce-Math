@@ -78,6 +78,11 @@ public class ControladorPelota : MonoBehaviour
                 llave.Colectar();
             }
         }
+        else if (other.CompareTag("Vida"))
+        {
+            Vida itemVida = other.GetComponent<Vida>();
+            if (itemVida != null) itemVida.Colectar();
+        }
         else if (other.CompareTag("Salida"))
         {
             GameManager.Instancia.IntentarSalir();

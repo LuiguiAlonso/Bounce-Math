@@ -37,7 +37,20 @@ public class DataManager : MonoBehaviour
     public int GetEstrellas(string nombreNivel)
     {
         string clave = $"Estrellas_{nombreNivel}";
-        // Devuelve las estrellas guardadas, o 0 si no hay ninguna clave
         return PlayerPrefs.GetInt(clave, 0);
+    }
+
+    public void DesbloquearNivel(string nombreNivel)
+    {
+        string clave = $"Desbloqueado_{nombreNivel}";
+        PlayerPrefs.SetInt(clave, 1);
+        PlayerPrefs.Save();
+        Debug.Log($"Nivel Desbloqueado: {nombreNivel}");
+    }
+
+    public bool EsNivelDesbloqueado(string nombreNivel)
+    {
+        string clave = $"Desbloqueado_{nombreNivel}";
+        return PlayerPrefs.GetInt(clave, 0) == 1;
     }
 }

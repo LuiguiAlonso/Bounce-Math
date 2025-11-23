@@ -129,20 +129,20 @@ TextureImporter:
       name: Pincho_Izquierda_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 2
-        width: 835
-        height: 763
+        x: 196
+        y: 290
+        width: 639
+        height: 446
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 74a026d46922af930800000000000000
-      internalID: 4177689633278265927
+      spriteID: 252ce5177bee10844b8837c9d0cb006a
+      internalID: 98912228
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e80c80c9a9445bf4192031203f536660
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pincho_Izquierda_0: 4177689633278265927
+      Pincho_Izquierda_0: 98912228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

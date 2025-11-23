@@ -6,8 +6,8 @@ using static System.Net.Mime.MediaTypeNames;
 public class LevelButton : MonoBehaviour
 {
     [Header("Configuración del Nivel")]
-    public string nombreEscena; 
-    public bool desbloqueado = false;
+    public string nombreEscena;
+    public bool desbloqueadoPorDefecto = false;
 
     [Header("Referencias de UI")]
     public UnityEngine.UI.Image[] estrellas;
@@ -33,26 +33,38 @@ public class LevelButton : MonoBehaviour
 
     public void ActualizarVisual()
     {
-        if (!desbloqueado)
+        // --- ¡LÓGICA MODIFICADA! ---
+        // El nivel está disponible si:
+        // 1. Está marcado como "por defecto" (Nivel 1)
+        // 2. O el DataManager dice que ya lo desbloquearon.
+        bool estaDisponible = desbloqueadoPorDefecto;
+
+        if (DataManager.Instancia != null && DataManager.Instancia.EsNivelDesbloqueado(nombreEscena))
         {
-            miBoton.interactable = false;
+            estaDisponible = true;
         }
-        else
+
+        miBoton.interactable = estaDisponible;
+
+        // Cambiamos el color del botón o su opacidad si está bloqueado (Opcional visualmente)
+        // miBoton.image.color = estaDisponible ? Color.white : Color.gray;
+
+        // ----------------------------
+
+        if (estaDisponible)
         {
-            miBoton.interactable = true;
             int estrellasGuardadas = DataManager.Instancia.GetEstrellas(nombreEscena);
 
             for (int i = 0; i < estrellas.Length; i++)
             {
-                if (i < estrellasGuardadas)
-                {
-                    estrellas[i].color = colorEstrellaGanada;
-                }
-                else
-                {
-                    estrellas[i].color = colorEstrellaPerdida;
-                }
+                if (i < estrellasGuardadas) estrellas[i].color = colorEstrellaGanada;
+                else estrellas[i].color = colorEstrellaPerdida;
             }
+        }
+        else
+        {
+            // Si está bloqueado, pinta todas las estrellas de negro
+            foreach (var estrella in estrellas) estrella.color = colorEstrellaPerdida;
         }
     }
 

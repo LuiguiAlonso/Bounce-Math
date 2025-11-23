@@ -26,7 +26,7 @@ public class QuizManager : MonoBehaviour
     private PreguntaSO preguntaActual;
     private AudioSource miAudioSource;
     private Llave llavePendiente;
-
+    private bool esQuizDeVida = false;
 
     void Awake()
     {
@@ -61,6 +61,22 @@ public class QuizManager : MonoBehaviour
         MostrarPregunta(preguntaActual);
     }
 
+    public void SolicitarQuizDeVida()
+    {
+        if (preguntasDeLlave.Count == 0) return;
+
+        llavePendiente = null;
+        esQuizDeVida = true; 
+
+        IniciarQuiz();
+    }
+
+    private void IniciarQuiz()
+    {
+        Time.timeScale = 0f;
+        preguntaActual = preguntasDeLlave[UnityEngine.Random.Range(0, preguntasDeLlave.Count)];
+        MostrarPregunta(preguntaActual);
+    }
 
     private void MostrarPregunta(PreguntaSO datos)
     {
@@ -85,6 +101,15 @@ public class QuizManager : MonoBehaviour
         StartCoroutine(RutinaFeedback(esCorrecto));
     }
 
+    public void ForzarCierreQuiz()
+    {
+        StopAllCoroutines();
+        panelQuiz.SetActive(false);
+        if (panelFlash != null) panelFlash.gameObject.SetActive(false);
+        llavePendiente = null;
+        esQuizDeVida = false;
+    }
+
     private IEnumerator RutinaFeedback(bool esCorrecto)
     {
         panelFlash.gameObject.SetActive(true);
@@ -94,7 +119,6 @@ public class QuizManager : MonoBehaviour
 
         float tiempoPasado = 0f;
         float duracionFade = duracionFlash / 2;
-
         while (tiempoPasado < duracionFade)
         {
             tiempoPasado += Time.unscaledDeltaTime;
@@ -102,9 +126,7 @@ public class QuizManager : MonoBehaviour
             panelFlash.color = new Color(colorFlash.r, colorFlash.g, colorFlash.b, alfa);
             yield return null;
         }
-
         tiempoPasado = 0f;
-
         while (tiempoPasado < duracionFade)
         {
             tiempoPasado += Time.unscaledDeltaTime;
@@ -112,40 +134,43 @@ public class QuizManager : MonoBehaviour
             panelFlash.color = new Color(colorFlash.r, colorFlash.g, colorFlash.b, alfa);
             yield return null;
         }
-
         panelFlash.gameObject.SetActive(false);
 
-        if (esCorrecto)
+
+        if (esQuizDeVida)
         {
-            if (llavePendiente != null)
+            if (esCorrecto)
+            {
+                GameManager.Instancia.AumentarVida();
+            }
+            else
+            {
+                string feedback = preguntaActual.feedbackSolucion;
+                UIManager.Instancia.MostrarFeedback(feedback);
+            }
+        }
+        else if (llavePendiente != null) 
+        {
+            if (esCorrecto)
             {
                 llavePendiente.CompletarRecoleccion();
             }
-        }
-        else
-        {
-            GameManager.Instancia.RegistrarFalloEnQuiz();
-            if (GameManager.Instancia.pelota != null)
+            else
             {
                 string feedback = preguntaActual.feedbackSolucion;
-                GameManager.Instancia.pelota.GetComponent<ControladorPelota>().MorirPorQuiz(feedback);
+                if (GameManager.Instancia.pelota != null)
+                {
+                    GameManager.Instancia.pelota.GetComponent<ControladorPelota>().MorirPorQuiz(feedback);
+                }
+                GameManager.Instancia.RegistrarFalloEnQuiz();
             }
         }
-        llavePendiente = null;
 
+        llavePendiente = null;
+        esQuizDeVida = false;
         if (GameManager.Instancia.VidasActuales > 0)
         {
             Time.timeScale = 1f;
-        }
-    }
-
-    public void ForzarCierreQuiz()
-    {
-        StopAllCoroutines();
-        panelQuiz.SetActive(false);
-        if (panelFlash != null)
-        {
-            panelFlash.gameObject.SetActive(false);
         }
     }
 }

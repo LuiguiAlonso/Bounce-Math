@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     public int VidasActuales { get { return vidasActuales; } }
     public float tiempoLimite = 60f; 
     private float tiempoRestante;
-    private bool estaJuegoTerminado = false; 
+    private bool estaJuegoTerminado = false;
+    public string nombreSiguienteNivel;
 
     [Header("Referencias de Escena")]
     public GameObject pelota;
@@ -288,7 +289,6 @@ public class GameManager : MonoBehaviour
     private void CalcularYMostrarEstrellas()
     {
         int rating = 0;
-
         if (preguntasFallidas == 0) rating = 3;
         else if (preguntasFallidas == 1) rating = 2;
         else rating = 1;
@@ -297,7 +297,16 @@ public class GameManager : MonoBehaviour
 
         if (DataManager.Instancia != null)
         {
+            // 1. Guardar Estrellas del nivel actual
             DataManager.Instancia.GuardarEstrellas(nombreEscenaActual, rating);
+
+            // --- ¡NUEVA LÓGICA! ---
+            // 2. Desbloquear el SIGUIENTE nivel
+            if (!string.IsNullOrEmpty(nombreSiguienteNivel))
+            {
+                DataManager.Instancia.DesbloquearNivel(nombreSiguienteNivel);
+            }
+            // ----------------------
         }
 
         for (int i = 0; i < estrellas.Length; i++)
