@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "718422355060",
+    "project_id": "bounce-math-leaderboard",
+    "storage_bucket": "bounce-math-leaderboard.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718422355060:android:a730ab0e18d2d7b9acb521",
+        "android_client_info": {
+          "package_name": "com.Luigui.Bounce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD58S5zqJztiTCxExNYmlVj4Y1E1IlFp3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,4 @@
+
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
@@ -97,3 +98,15 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# ==========================================
+# CUSTOM LOGS & SECURITY BYPASS (PROYECTO BOUNCEMATH)
+# ==========================================
+
+# Archivos de firma digital de Android (Evita subir claves privadas)
+*.keystore
+*.jks
+
+# Binarios de Firebase para Escritorio (Exceden el límite de 100MB de GitHub)
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-13_6_0.bundle
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-13_6_0.so

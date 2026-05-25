@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Inecuaciones 5
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFCu\xE1l afirmaci\xF3n sobre inecuaciones es correcta?\n\nA) Siempre
+    se resuelven igual que las ecuaciones, nunca cambia el signo\nB) Su soluci\xF3n
+    puede representarse como un intervalo\nC) Solo aceptan n\xFAmeros enteros como
+    respuestas\nD) Sus soluciones son siempre un \xFAnico valor"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 1
+  feedbackSolucion: "Las inecuaciones describen intervalos de valores porque permiten
+    m\xFAltiples soluciones, no una sola."

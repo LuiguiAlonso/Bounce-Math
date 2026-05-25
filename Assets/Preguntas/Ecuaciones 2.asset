@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Ecuaciones 2
+  m_EditorClassIdentifier: 
+  pregunta: "Para mantener una ecuaci\xF3n verdadera, \xBFqu\xE9 se debe hacer al
+    resolverla?\n\nA) Cambiar los signos de todos los terminos\nB) Sumar un numero
+    en un lado y restar el mismo en el otro\nC) Realizar la misma operacion en ambos
+    lados de la ecuacion\nD) Multiplicar por numeros distintos en cada lado"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 2
+  feedbackSolucion: Para conservar la igualdad, cualquier operacion se debe aplicar
+    por igual en ambos lados.

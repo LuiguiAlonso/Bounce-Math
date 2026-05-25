@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     {
         if (textoVidas != null)
         {
-            textoVidas.text = $"x{vidas}";
+            textoVidas.text = $"X{vidas}";
         }
     }
 

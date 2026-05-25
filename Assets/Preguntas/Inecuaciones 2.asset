@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Inecuaciones 2
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFCu\xE1ndo se debe cambiar el sentido de la desigualdad al resolver
+    una inecuaci\xF3n?\n\nA) Cuando se suma un n\xFAmero negativo\nB) Cuando se restan
+    n\xFAmeros en ambos lados\nC) Cuando se multiplica o divide por un n\xFAmero
+    negativo\nD) Cuando se eleva al cuadrado"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 2
+  feedbackSolucion: "El signo solo cambia si multiplicas o divides por un n\xFAmero
+    negativo. En ninguna otra operaci\xF3n cambia la desigualdad."

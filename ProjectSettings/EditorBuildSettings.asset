@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel_6.unity
     guid: 7a65dd27c25af75488623cd7c3032bfc
+  - enabled: 1
+    path: Assets/Scenes/Comentarios.unity
+    guid: 23957ae6233549b4cbf77eed45015673
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

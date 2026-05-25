@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: PDI 7
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFCu\xE1l de las siguientes transformaciones es incorrecta porque
+    viola una propiedad de la igualdad?\n\nA) Si x = 5, entonces x + 2 = 5 + 2\nB)
+    Si x = 5, entonces 2x = 2 \xB7 5\nC) Si x = 5, entonces x \u2013 3 = 5\nD) Si
+    x = 5, entonces 3 + x = 3 + 5"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 2
+  feedbackSolucion: 

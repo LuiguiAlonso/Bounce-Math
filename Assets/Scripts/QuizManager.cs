@@ -15,9 +15,6 @@ public class QuizManager : MonoBehaviour
     public Button[] botonesRespuesta = new Button[4];
     public UnityEngine.UI.Image panelFlash;
 
-    [Header("Base de Datos")]
-    public List<PreguntaSO> preguntasDeLlave;
-
     [Header("Feedback")]
     public AudioClip sonidoCorrecto;
     public AudioClip sonidoIncorrecto;
@@ -26,22 +23,18 @@ public class QuizManager : MonoBehaviour
     private PreguntaSO preguntaActual;
     private AudioSource miAudioSource;
     private Llave llavePendiente;
-    private bool esQuizDeVida = false;
+    private bool esQuizDeVida;
+
+    private List<PreguntaSO> preguntasMaestras = new List<PreguntaSO>();
+    private List<PreguntaSO> preguntasDisponibles = new List<PreguntaSO>();
 
     void Awake()
     {
-        if (Instancia != null && Instancia != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            Instancia = this;
-        }
+        if (Instancia != null && Instancia != this) Destroy(this.gameObject);
+        else Instancia = this;
 
         miAudioSource = GetComponent<AudioSource>();
         panelQuiz.SetActive(false);
-
         if (panelFlash != null)
         {
             panelFlash.color = new Color(1, 1, 1, 0);
@@ -49,48 +42,84 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+
+    public void CargarPreguntasDelNivel(List<PreguntaSO> nuevasPreguntas)
+    {
+        preguntasMaestras = new List<PreguntaSO>(nuevasPreguntas); 
+        ReponerPreguntas(); 
+    }
+
+    private void ReponerPreguntas()
+    {
+        preguntasDisponibles = new List<PreguntaSO>(preguntasMaestras);
+    }
+
+    private PreguntaSO ObtenerPreguntaSinRepetir()
+    {
+        if (preguntasDisponibles.Count == 0)
+        {
+            if (preguntasMaestras.Count > 0)
+            {
+                ReponerPreguntas();
+            }
+            else
+            {
+                return null; 
+            }
+        }
+
+        int index = UnityEngine.Random.Range(0, preguntasDisponibles.Count);
+        PreguntaSO preguntaSeleccionada = preguntasDisponibles[index];
+        preguntasDisponibles.RemoveAt(index);
+
+        return preguntaSeleccionada;
+    }
+
     public void SolicitarQuizDeLlave(Llave llave)
     {
-        if (preguntasDeLlave.Count == 0) return;
+        if (preguntasMaestras.Count == 0)
+        {
+            Debug.LogWarning("¡No se han cargado preguntas para este nivel!");
+            return;
+        }
 
         llavePendiente = llave;
-
-        Time.timeScale = 0f;
-        preguntaActual = preguntasDeLlave[UnityEngine.Random.Range(0, preguntasDeLlave.Count)];
-
-        MostrarPregunta(preguntaActual);
+        esQuizDeVida = false;
+        IniciarQuiz();
     }
 
     public void SolicitarQuizDeVida()
     {
-        if (preguntasDeLlave.Count == 0) return;
+        if (preguntasMaestras.Count == 0) return;
 
         llavePendiente = null;
-        esQuizDeVida = true; 
-
+        esQuizDeVida = true;
         IniciarQuiz();
     }
 
     private void IniciarQuiz()
     {
         Time.timeScale = 0f;
-        preguntaActual = preguntasDeLlave[UnityEngine.Random.Range(0, preguntasDeLlave.Count)];
-        MostrarPregunta(preguntaActual);
+        preguntaActual = ObtenerPreguntaSinRepetir();
+
+        if (preguntaActual != null)
+        {
+            MostrarPregunta(preguntaActual);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     private void MostrarPregunta(PreguntaSO datos)
     {
         textoPregunta.text = datos.pregunta;
-
         for (int i = 0; i < botonesRespuesta.Length; i++)
         {
             TextMeshProUGUI textoBoton = botonesRespuesta[i].GetComponentInChildren<TextMeshProUGUI>();
-            if (textoBoton != null)
-            {
-                textoBoton.text = datos.alternativas[i];
-            }
+            if (textoBoton != null) textoBoton.text = datos.alternativas[i];
         }
-
         panelQuiz.SetActive(true);
     }
 
@@ -136,41 +165,31 @@ public class QuizManager : MonoBehaviour
         }
         panelFlash.gameObject.SetActive(false);
 
-
         if (esQuizDeVida)
         {
-            if (esCorrecto)
-            {
-                GameManager.Instancia.AumentarVida();
-            }
+            if (esCorrecto) GameManager.Instancia.AumentarVida();
             else
             {
                 string feedback = preguntaActual.feedbackSolucion;
                 UIManager.Instancia.MostrarFeedback(feedback);
             }
         }
-        else if (llavePendiente != null) 
+        else if (llavePendiente != null)
         {
-            if (esCorrecto)
-            {
-                llavePendiente.CompletarRecoleccion();
-            }
+            if (esCorrecto) llavePendiente.CompletarRecoleccion();
             else
             {
                 string feedback = preguntaActual.feedbackSolucion;
                 if (GameManager.Instancia.pelota != null)
-                {
                     GameManager.Instancia.pelota.GetComponent<ControladorPelota>().MorirPorQuiz(feedback);
-                }
                 GameManager.Instancia.RegistrarFalloEnQuiz();
             }
         }
 
         llavePendiente = null;
         esQuizDeVida = false;
-        if (GameManager.Instancia.VidasActuales > 0)
-        {
-            Time.timeScale = 1f;
-        }
+
+        if (GameManager.Instancia.VidasActuales > 0) Time.timeScale = 1f;
     }
 }
+

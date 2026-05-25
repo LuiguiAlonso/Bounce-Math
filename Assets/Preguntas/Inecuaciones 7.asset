@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Inecuaciones 7
+  m_EditorClassIdentifier: 
+  pregunta: "Resuelve: \u20133x \u2265 9\n\nA) x \u2264 \u20133\nB) x \u2265 \u20133\nC)
+    x \u2265 3\nD) x \u2264 3"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 0
+  feedbackSolucion: 

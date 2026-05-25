@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
 using System;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(AudioSource))] 
 public class GameManager : MonoBehaviour
@@ -46,7 +47,9 @@ public class GameManager : MonoBehaviour
     public Color colorEstrellaApagada = Color.black;
     private int preguntasFallidas = 0;
 
-    private AudioSource miAudioSource; 
+    private AudioSource miAudioSource;
+    [Header("Preguntas de ESTE Nivel")] 
+    public List<PreguntaSO> preguntasDelNivel;
 
     void Awake()
     {
@@ -76,6 +79,14 @@ public class GameManager : MonoBehaviour
             UIManager.Instancia.ActualizarVidas(vidasActuales);
             UIManager.Instancia.IniciarLlaves(llavesTotales);
             UIManager.Instancia.ActualizarTiempo(tiempoRestante);
+        }
+    }
+
+    void Start()
+    {
+        if (QuizManager.Instancia != null)
+        {
+            QuizManager.Instancia.CargarPreguntasDelNivel(preguntasDelNivel);
         }
     }
 

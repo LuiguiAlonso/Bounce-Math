@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: PDI 5
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFCu\xE1l operaci\xF3n convierte la igualdad 7 = 7 en una igualdad
+    equivalente usando la propiedad aditiva?\n\nA) 7 \xD7 2 = 7 \xD7 2\nB) 7 \u2013
+    3 = 7 + 3\nC) 7 + 4 = 7 + 4\nD) 7 = 7 \xF7 2"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 2
+  feedbackSolucion: 

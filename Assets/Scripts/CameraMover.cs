@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class CameraMover : MonoBehaviour
 {
     [Header("Configuración del Movimiento")]
     public Transform posicionMenu;
     public Transform posicionSelector;
+    public Transform posicionLeaderboard;
+
     public float duracionMovimiento = 0.7f;
     public AnimationCurve curvaEase;
 
@@ -26,6 +29,19 @@ public class CameraMover : MonoBehaviour
     {
         MoverCamara(posicionSelector.position);
     }
+
+    public void MoverALeaderboard()
+    {
+        if (posicionLeaderboard != null)
+        {
+            MoverCamara(posicionLeaderboard.position);
+        }
+        else
+        {
+            Debug.LogWarning("¡Falta asignar la PosicionLeaderboard en el Inspector!");
+        }
+    }
+    // ----------------------
 
     public void MoverAMenu()
     {
@@ -57,7 +73,7 @@ public class CameraMover : MonoBehaviour
 
             camaraPrincipal.transform.position = Vector3.Lerp(inicio, destino, tSuavizado);
 
-            yield return null; 
+            yield return null;
         }
 
         camaraPrincipal.transform.position = destino;

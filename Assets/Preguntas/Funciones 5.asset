@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Funciones 5
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFQu\xE9 se necesita para determinar por completo una funci\xF3n lineal?\n\nA)
+    Solo la pendiente\nB) Solo el punto donde inicia\nC) La pendiente y un punto
+    de la recta\nD) El valor maximo y minimo"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 2
+  feedbackSolucion: Con la pendiente y un punto, puedes construir la recta completa,
+    porque definen su direccion y posicion.

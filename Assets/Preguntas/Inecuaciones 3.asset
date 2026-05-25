@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Inecuaciones 3
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFQu\xE9 representa la soluci\xF3n de una inecuaci\xF3n en la recta
+    num\xE9rica?\n\nA) Un \xFAnico n\xFAmero\nB) Todos los n\xFAmeros que cumplen
+    la condici\xF3n\nC) Solo n\xFAmeros positivos\nD) Una ecuaci\xF3n equivalente"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 1
+  feedbackSolucion: "Las inecuaciones no tienen una sola soluci\xF3n, sino un conjunto
+    de n\xFAmeros que satisfacen la comparaci\xF3n."

@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(AudioSource))] 
@@ -35,7 +35,10 @@ public class ControladorPelota : MonoBehaviour
 
     void Salto()
     {
-        if (estaEnSuelo && Input.GetButtonDown("Jump"))
+        bool saltoTeclado = Input.GetButtonDown("Jump");
+        bool saltoMovil = InputMovil.Saltando;
+
+        if (estaEnSuelo && (saltoTeclado || saltoMovil))
         {
             rb.AddForce(Vector2.up * salto, ForceMode2D.Impulse);
 
@@ -43,12 +46,23 @@ public class ControladorPelota : MonoBehaviour
             {
                 miAudioSource.PlayOneShot(sonidoSalto);
             }
+
+            InputMovil.Saltando = false;
         }
     }
 
     void Movimiento()
     {
+        // 1. Obtenemos input de teclado (-1 a 1)
         float inputHorizontal = Input.GetAxis("Horizontal");
+
+        // 2. Si es 0 (no toca teclado), comprobamos el móvil
+        if (inputHorizontal == 0)
+        {
+            if (InputMovil.MoviendoDerecha) inputHorizontal = 1;
+            if (InputMovil.MoviendoIzquierda) inputHorizontal = -1;
+        }
+
         rb.linearVelocity = new Vector2(inputHorizontal * velocidad, rb.linearVelocity.y);
     }
 

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Ecuaciones 5
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFC\xF3mo se verifica si una solucion es correcta?\n\nA) Asumiendo
+    que el resultado esta bien\nB) Elevando la ecuacion al cuadrado\nC) Reemplazando
+    el valor encontrado en la ecuacion original\nD) Cambiando los signos de todos
+    los terminos"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 2
+  feedbackSolucion: Para comprobar una solucion, se reemplaza en la ecuacion original
+    y se revisa si ambos lados quedan iguales.

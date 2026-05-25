@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ab1c3b3fa13b4a928f5b78b0518a8, type: 3}
+  m_Name: Ecuaciones 3
+  m_EditorClassIdentifier: 
+  pregunta: "\xBFQu\xE9 significa que x = 3 sea solucion de la ecuacion 2x + 1 =
+    7?\n\nA) Que al reemplazar x por 3 se obtiene cualquier numero\nB) Que al reemplazar
+    x por 3 la igualdad se cumple\nC) Que x siempre sera igual a 7\nD) Que 3 es el
+    unico numero dentro de la expresion"
+  alternativas:
+  - A
+  - B
+  - C
+  - D
+  indiceRespuestaCorrecta: 1
+  feedbackSolucion: Un numero es solucion cuando, al reemplazarlo en la ecuacion,
+    los dos lados quedan iguales.
